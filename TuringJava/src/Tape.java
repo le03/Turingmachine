@@ -4,7 +4,7 @@ import java.util.Stack;
  * Represents a tape of a turing-machine
  */
 public class Tape {
-	private State state = new State(0);
+	
 	private String current; // Schreib-/Lesekopf
 	private Stack<String> leftPart = new Stack<String>(); // Linke Teil unseres Bandes vom Schreib-/Lesekopf ausgesehen
 	private Stack<String> rightPart = new Stack<String>(); // rechter Teil unseres Bandes vom Schreib-/Lesekopf ausgesehen
@@ -67,12 +67,19 @@ public class Tape {
         }
         String left = s.substring(0, N/2);
         String right = s.substring(N/2, N);
-        
+        /* Ähnlich dem Binärensortieren, nur das wir nicht wirklich sortieren */
         return reverse(right) + reverse(left);
 	}
 	/* Ausgabe unseres Bandes */
 	public String toString(){
-		return BLANK + BLANK + reverse(leftPart.toString()) + state + rightPart + BLANK + BLANK;
+		return BLANK + BLANK + reverse(leftPart.toString()) + current + rightPart + BLANK + BLANK;
 	}
-		
+	/*Ausgabe linker Teil unseres Bandes */
+	public String leftTape(){
+		return reverse(leftPart.toString());
+	}
+	/*Ausgabe rechter Teil unseres Bandes */
+	public String rightTape(){
+		return rightPart.toString();
+	}
 }

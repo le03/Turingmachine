@@ -2,17 +2,25 @@
  * Represents a state of a turingmachine
  */
 public class State {
-	private int state;
+	private String name;
+	/* Wenn Zustand ein Endzustand so geben wir ihm eine besondere Typbezeichnung "H". Die anderen Zustaende sollen die Bezeichnung "N" bekommen */
+	private String type;
 	
-	public State(int state){
-		this.state = state;
+	public State(String name, String type){
+		this.name = name;
+		this.type = type;
 	}
 	
-	public int getState(){
-		return state;
+	public String getName(){
+		return name;
+	}
+	
+	/* Wenn Zustand ein Endzustand ist so gebe true zurück */
+	public boolean isHalt(){
+		return type.equals("H");
 	}
 	
 	public String toString(){
-		return "[" + state + "]";
+		return "[" + name + "]";
 	}
 }
