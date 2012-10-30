@@ -20,6 +20,17 @@ public class Transition {
 		return from + " " + read + " " + " " + to + " " + write + " " + direction;
 	}
 	
+	public boolean isNo(){
+		return direction.equals("N");
+	}
+	
+	public boolean isLeft(){
+		return direction.equals("L");
+	}
+	
+	public boolean isRight(){
+		return direction.equals("R");
+	}
 	
 	/* Lediglich Getter-/Settermethoden */
 	public State getFrom() {
@@ -57,7 +68,7 @@ public class Transition {
 	public String getDirection() {
 		return direction;
 	}
-
+	
 	public void setDirection(String direction) {
 		this.direction = direction;
 	}
